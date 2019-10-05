@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		EC76D8FC96E4DCE98A84FD70 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC76D2487C9933D8396A8168 /* LoginViewController.swift */; };
 		EC76D9068C774722617B1215 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC76D45B5F63DBB39DDCDB5D /* AppCoordinator.swift */; };
+		EC76DB76F433DE26D2FF9036 /* CollectionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC76DC7D9E40284CE4ABDDF2 /* CollectionHelper.swift */; };
 		EC76DE570D111154D3AD2CA9 /* LoginAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC76DDE0610EFE3DDB85C434 /* LoginAssembler.swift */; };
 		EC76DE826FEB6C6BCBB5C89B /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC76DAB056D97F4D25A7568A /* LoginViewModel.swift */; };
 		EC76DEF2AF25EC0795E3B2FB /* InterestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC76D4AA7832614C6D340493 /* InterestsViewController.swift */; };
@@ -61,6 +62,8 @@
 		F646E4AF2348B50500C5F77A /* Utils.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F646E4452348B3F700C5F77A /* Utils.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F646E4B42348B61B00C5F77A /* InterestsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F646E4B32348B61B00C5F77A /* InterestsViewModel.swift */; };
 		F646E4B72348B66300C5F77A /* InterestsAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F646E4B62348B66300C5F77A /* InterestsAssembler.swift */; };
+		F646E4BA234925E500C5F77A /* InterestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F646E4B8234925E500C5F77A /* InterestCell.swift */; };
+		F646E4BB234925E500C5F77A /* InterestCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F646E4B9234925E500C5F77A /* InterestCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +95,7 @@
 		EC76D45B5F63DBB39DDCDB5D /* AppCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		EC76D4AA7832614C6D340493 /* InterestsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterestsViewController.swift; sourceTree = "<group>"; };
 		EC76DAB056D97F4D25A7568A /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		EC76DC7D9E40284CE4ABDDF2 /* CollectionHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionHelper.swift; sourceTree = "<group>"; };
 		EC76DDE0610EFE3DDB85C434 /* LoginAssembler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginAssembler.swift; sourceTree = "<group>"; };
 		F646E41023488FA000C5F77A /* MVVMTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVVMTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F646E41323488FA000C5F77A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -144,6 +148,8 @@
 		F646E4852348B4C700C5F77A /* UILinkableLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UILinkableLabel.swift; path = ../../LeoUtils/LeoUtils/UILinkableLabel.swift; sourceTree = "<group>"; };
 		F646E4B32348B61B00C5F77A /* InterestsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestsViewModel.swift; sourceTree = "<group>"; };
 		F646E4B62348B66300C5F77A /* InterestsAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestsAssembler.swift; sourceTree = "<group>"; };
+		F646E4B8234925E500C5F77A /* InterestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestCell.swift; sourceTree = "<group>"; };
+		F646E4B9234925E500C5F77A /* InterestCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InterestCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -219,6 +225,7 @@
 				F646E41C23488FA100C5F77A /* Assets.xcassets */,
 				F646E41E23488FA100C5F77A /* LaunchScreen.storyboard */,
 				F646E42123488FA100C5F77A /* Info.plist */,
+				F646E4BD234925F800C5F77A /* Components */,
 				EC76DFCD923A05C53C17B1B6 /* Flow */,
 				EC76D099C26BEDB09C02CDBD /* Modules */,
 			);
@@ -393,8 +400,26 @@
 				EC76D4AA7832614C6D340493 /* InterestsViewController.swift */,
 				F646E4B62348B66300C5F77A /* InterestsAssembler.swift */,
 				F646E4B32348B61B00C5F77A /* InterestsViewModel.swift */,
+				EC76DC7D9E40284CE4ABDDF2 /* CollectionHelper.swift */,
 			);
 			path = Interests;
+			sourceTree = "<group>";
+		};
+		F646E4BC234925EC00C5F77A /* InterestCell */ = {
+			isa = PBXGroup;
+			children = (
+				F646E4B8234925E500C5F77A /* InterestCell.swift */,
+				F646E4B9234925E500C5F77A /* InterestCell.xib */,
+			);
+			path = InterestCell;
+			sourceTree = "<group>";
+		};
+		F646E4BD234925F800C5F77A /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				F646E4BC234925EC00C5F77A /* InterestCell */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -491,6 +516,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F646E4BB234925E500C5F77A /* InterestCell.xib in Resources */,
 				F646E42023488FA100C5F77A /* LaunchScreen.storyboard in Resources */,
 				F646E41D23488FA100C5F77A /* Assets.xcassets in Resources */,
 			);
@@ -512,6 +538,7 @@
 			files = (
 				F646E4B42348B61B00C5F77A /* InterestsViewModel.swift in Sources */,
 				F646E41423488FA000C5F77A /* AppDelegate.swift in Sources */,
+				F646E4BA234925E500C5F77A /* InterestCell.swift in Sources */,
 				F646E41623488FA000C5F77A /* SceneDelegate.swift in Sources */,
 				EC76D9068C774722617B1215 /* AppCoordinator.swift in Sources */,
 				F646E4B72348B66300C5F77A /* InterestsAssembler.swift in Sources */,
@@ -519,6 +546,7 @@
 				EC76DE826FEB6C6BCBB5C89B /* LoginViewModel.swift in Sources */,
 				EC76D8FC96E4DCE98A84FD70 /* LoginViewController.swift in Sources */,
 				EC76DE570D111154D3AD2CA9 /* LoginAssembler.swift in Sources */,
+				EC76DB76F433DE26D2FF9036 /* CollectionHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

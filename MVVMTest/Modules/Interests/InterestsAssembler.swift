@@ -13,6 +13,7 @@ enum InterestsAssembler {
     let view = InterestsViewController()
     let viewModel = InterestsViewModel()
     view.viewModel = viewModel
+    view.collectionHelper = CollectionHelper()
     return (view, viewModel)
   }
 }
