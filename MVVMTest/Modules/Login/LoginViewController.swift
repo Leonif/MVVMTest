@@ -7,20 +7,25 @@
 //
 
 import UIKit
+import LeoUtils
 
-protocol LoginCoordinatorOutput: class {
-  func loginTapped()
-}
 
 class LoginViewController: UIViewController {
   
   private var loginButton: UIButton!
-  weak var output: LoginCoordinatorOutput?
+  var viewModel: LoginViewModelInterface!
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
     self.view.backgroundColor = .red
+    
+    self.viewModel.eventHandler = { [weak self] states in
+      switch states {
+      case .error:
+        self?.showError()
+      }
+    }
     self.setupButton()
   }
   
@@ -37,7 +42,11 @@ class LoginViewController: UIViewController {
   
   @objc
   func loginTapped() {
-    output?.loginTapped()
+    viewModel.loginFacebook()
+  }
+  
+  func showError() {
+    self.alert(message: "Something went wrong")
   }
   
 }
