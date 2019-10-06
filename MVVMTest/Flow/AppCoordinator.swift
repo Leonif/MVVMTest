@@ -9,15 +9,11 @@ protocol RouterInterface {
   func setRootModule(viewController: UIViewController)
   func push(viewController: UIViewController)
   func back()
-  
 }
-
 
 protocol CoordinatorInterface: class {
   func start()
-//  func start(with option: DeepLinkOption?)
 }
-
 
 class Router: RouterInterface {
   

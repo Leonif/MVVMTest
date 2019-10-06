@@ -5,7 +5,6 @@
 
 import UIKit
 
-
 extension UIColor {
   static var nero: UIColor {
     return UIColor(red: 30/255, green: 30/255, blue: 30/255, alpha: 1.0)
@@ -13,5 +12,4 @@ extension UIColor {
   static var steelBlue: UIColor {
     return UIColor(red: 80/255, green: 129/255, blue: 183/255, alpha: 1.0)
   }
-  
 }

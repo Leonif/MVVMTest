@@ -27,7 +27,6 @@ protocol InterestsDataSource {
   func selectedItem(for index: Int)
 }
 
-
 protocol InterestsCoordinatorOutput: class {
   func interestFinished()
 }
@@ -52,7 +51,6 @@ class InterestsViewModel: InterestsViewModelInterface, InterestsDataSource {
       eventHandler?(.fetched)
     } else {
       eventHandler?(.error)
-      
     }
   }
   
@@ -99,7 +97,4 @@ class InterestsViewModel: InterestsViewModelInterface, InterestsDataSource {
       object.color = item.color.stringColor
     }, completion: {_ in })
   }
-  
-  
-  
 }
