@@ -96,7 +96,6 @@ class LoginViewController: UIViewController {
     self.loginButton.addTarget(self, action: #selector(loginTapped), for: .touchUpInside)
   }
   
-  
   private func decorate() {
     self.view.backgroundColor = .nero
     self.loginButton.setTitle("Continue with Facebook", for: .normal)
