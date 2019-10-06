@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import DataLayer
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -15,6 +16,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
   var rootController: UINavigationController?
   
   private lazy var applicationCoordinator: CoordinatorInterface = self.makeCoordinator()
+  
 
   func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
     

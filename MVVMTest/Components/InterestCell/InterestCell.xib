@@ -61,6 +61,7 @@
             <size key="customSize" width="128" height="127"/>
             <connections>
                 <outlet property="containerView" destination="DKj-pn-RiB" id="hDl-P9-sdh"/>
+                <outlet property="icon" destination="oHK-Y9-E7C" id="DlF-fb-svE"/>
                 <outlet property="tickImage" destination="E1t-nR-475" id="8iE-TF-wB5"/>
                 <outlet property="titleLabel" destination="1xH-pO-PR8" id="b21-Ny-ElV"/>
             </connections>

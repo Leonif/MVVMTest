@@ -37,7 +37,7 @@ class CollectionHelper: NSObject, UICollectionViewDelegate, UICollectionViewData
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let item = viewModel.getItem(for: indexPath.row)
     let cell: InterestCell = collectionView.dequeueReusableCell(for: indexPath)
-    cell.config(title: item.title, color: item.color, isSelected: item.isSelected)
+    cell.config(imageUrl: item.img.safe, title: item.title, color: item.color, isSelected: item.isSelected)
     return cell
   }
   

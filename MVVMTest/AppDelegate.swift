@@ -7,10 +7,14 @@
 //
 
 import UIKit
+import DataLayer
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+  
+  lazy var persistenceProvider: PitchPersistenceProviderInterface = DataProviderFactory.createPersistenceManager()
+  
+  
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     // Override point for customization after application launch.
     return true
