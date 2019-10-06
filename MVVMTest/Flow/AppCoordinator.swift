@@ -6,8 +6,10 @@
 import UIKit
 
 protocol RouterInterface {
-  func push(viewController: UIViewController)
   func setRootModule(viewController: UIViewController)
+  func push(viewController: UIViewController)
+  func back()
+  
 }
 
 
@@ -24,13 +26,16 @@ class Router: RouterInterface {
   init(rootViewController: UINavigationController) {
     self.rootViewController = rootViewController
   }
+  func setRootModule(viewController: UIViewController) {
+    self.rootViewController?.setViewControllers([viewController], animated: false)
+  }
   
   func push(viewController: UIViewController) {
     self.rootViewController.pushViewController(viewController, animated: true)
   }
   
-  func setRootModule(viewController: UIViewController) {
-    self.rootViewController?.setViewControllers([viewController], animated: false)
+  func back() {
+    self.rootViewController.popViewController(animated: true)
   }
 }
 
@@ -46,22 +51,24 @@ class AppCoordinator: CoordinatorInterface {
   }
   
   private func showLoginScreen() {
-    let view = LoginViewController()
-    view.output = self
-    router?.setRootModule(viewController: view)
+    let module = LoginAssembler.makeLoginModule()
+    module.viewModel.output = self
+    router?.setRootModule(viewController: module.view)
   }
   
   private func showInterestsScreen() {
-    let view = InterestsViewController()
-//    view.output = self
-    router?.push(viewController: view)
+    let module = InterestsAssembler.makeInterestModule()
+    module.viewModel.output = self
+    router?.push(viewController: module.view)
   }
-  
 }
 
-
-extension AppCoordinator: LoginCoordinatorOutput {
-  func loginTapped() {
+extension AppCoordinator: LoginCoordinatorOutput, InterestsCoordinatorOutput {
+  func loginFinished() {
     showInterestsScreen()
+  }
+  
+  func interestFinished() {
+    router?.back()
   }
 }

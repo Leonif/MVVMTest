@@ -7,14 +7,20 @@
 //
 
 import UIKit
+import DataLayer
+import FBSDKLoginKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
-
-
+  
+  lazy var persistenceProvider: PitchPersistenceProviderInterface = DataProviderFactory.createPersistenceManager()
+  
+  
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     // Override point for customization after application launch.
+    ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
+    
+    
     return true
   }
 
