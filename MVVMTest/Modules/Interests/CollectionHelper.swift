@@ -7,7 +7,7 @@ import UIKit
 
 class CollectionHelper: NSObject, UICollectionViewDelegate, UICollectionViewDataSource {
   
-  var viewModel: InterestsViewModelInterface!
+  var viewModel: InterestsDataSource!
   
   var collectionView: UICollectionView! {
     didSet {
@@ -18,7 +18,6 @@ class CollectionHelper: NSObject, UICollectionViewDelegate, UICollectionViewData
   }
   var layout: UICollectionViewFlowLayout! {
     didSet {
-      
       let width = UIScreen.main.bounds.width / 3
       layout.itemSize = CGSize(width: width, height: width)
       layout.minimumLineSpacing = 0

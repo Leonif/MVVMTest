@@ -27,24 +27,15 @@ class InterestsViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
-    self.view.backgroundColor = .nero
-    
     setupTitle()
     setupSubtitle()
     setupCollectionView()
     viewModel.fetch()
+    decorate()
   }
-  
-  
-  
   
   private func setupTitle() {
     self.titleLabel = UILabel(frame: CGRect.zero)
-    self.titleLabel.textAlignment = .center
-    self.titleLabel.text = "Choose interests"
-    self.titleLabel.textColor = .white
-    self.titleLabel.font = UIFont.systemFont(ofSize: 32)
     self.view.addSubview(titleLabel)
     titleLabel.translatesAutoresizingMaskIntoConstraints = false
     NSLayoutConstraint.activate([
@@ -56,11 +47,6 @@ class InterestsViewController: UIViewController {
   
   private func setupSubtitle() {
     self.subtitleLabel = UILabel(frame: CGRect.zero)
-    self.subtitleLabel.textAlignment = .center
-    self.subtitleLabel.text = "Choose 5 or more that you like in order to get proper recommendations"
-    self.subtitleLabel.numberOfLines = 0
-    self.subtitleLabel.textColor = .white
-    self.subtitleLabel.font = UIFont.systemFont(ofSize: 20)
     self.view.addSubview(subtitleLabel)
     subtitleLabel.translatesAutoresizingMaskIntoConstraints = false
     NSLayoutConstraint.activate([
@@ -75,12 +61,9 @@ class InterestsViewController: UIViewController {
     
     collectionHelper?.collectionView = collectionView
     collectionHelper?.layout = layout
-    collectionHelper?.viewModel = viewModel
-    
     
     self.view.addSubview(collectionView)
     self.collectionView.translatesAutoresizingMaskIntoConstraints = false
-    self.collectionView.backgroundColor = .clear
   
     NSLayoutConstraint.activate([
       collectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
@@ -88,6 +71,20 @@ class InterestsViewController: UIViewController {
       collectionView.topAnchor.constraint(equalTo: self.subtitleLabel.bottomAnchor, constant: 32),
       collectionView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
     ])
+  }
+  
+  private func decorate() {
+    self.view.backgroundColor = .nero
+    self.titleLabel.textAlignment = .center
+    self.titleLabel.text = "Choose interests"
+    self.titleLabel.textColor = .white
+    self.titleLabel.font = UIFont.systemFont(ofSize: 32)
+    self.subtitleLabel.textAlignment = .center
+    self.subtitleLabel.text = "Choose 5 or more that you like in order to get proper recommendations"
+    self.subtitleLabel.numberOfLines = 0
+    self.subtitleLabel.textColor = .white
+    self.subtitleLabel.font = UIFont.systemFont(ofSize: 20)
+    self.collectionView.backgroundColor = .clear
   }
   
   func showError() {

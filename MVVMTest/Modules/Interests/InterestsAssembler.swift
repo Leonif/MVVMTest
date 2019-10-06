@@ -15,7 +15,9 @@ enum InterestsAssembler {
     let viewModel = InterestsViewModel()
     viewModel.persistenceProvider = DataProviderFactory().assemble()
     view.viewModel = viewModel
-    view.collectionHelper = CollectionHelper()
+    let helper = CollectionHelper()
+    helper.viewModel = viewModel
+    view.collectionHelper = helper
     return (view, viewModel)
   }
 }

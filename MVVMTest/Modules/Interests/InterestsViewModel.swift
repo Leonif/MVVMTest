@@ -19,16 +19,20 @@ protocol InterestsViewModelInterface {
   var eventHandler: EventHandler<InterestsViewModelEvent>? { get set }
   func fetch()
   func back()
+}
+
+protocol InterestsDataSource {
   func interestsCount() -> Int
   func getItem(for index: Int) -> InterestItem
   func selectedItem(for index: Int)
 }
 
+
 protocol InterestsCoordinatorOutput: class {
   func interestFinished()
 }
 
-class InterestsViewModel: InterestsViewModelInterface {
+class InterestsViewModel: InterestsViewModelInterface, InterestsDataSource {
   weak var output: InterestsCoordinatorOutput?
   private var interests: [InterestItem] = [
     InterestItem(id: 0, img: "pen", title: "Art & Design", color: .red, isSelected: false),
@@ -39,7 +43,6 @@ class InterestsViewModel: InterestsViewModelInterface {
   ]
   
   var persistenceProvider: PitchPersistenceProviderInterface!
-  
   var eventHandler: EventHandler<InterestsViewModelEvent>? = nil
   private var coredataService: Bool = true
   
@@ -56,7 +59,7 @@ class InterestsViewModel: InterestsViewModelInterface {
   private func append(interests: [InterestItem]) {
     let objects: [Interest] = persistenceProvider.fetchAllRecords()
     let ids = objects.map { $0.id }
-    for item in interests {
+    for (index, item) in interests.enumerated() {
       if !ids.contains(item.id.int64) {
         persistenceProvider.saveRecord(saveCode: { (object: Interest) in
           object.id = item.id.int64
@@ -65,6 +68,9 @@ class InterestsViewModel: InterestsViewModelInterface {
           object.isSelected = item.isSelected
           object.color = item.color.stringColor
         }) { _ in }
+      } else {
+        let object: Interest? = persistenceProvider.fetchRecord(with: item.id.string)
+        self.interests[index].isSelected = object?.isSelected ?? false
       }
     }
   }
@@ -83,5 +89,17 @@ class InterestsViewModel: InterestsViewModelInterface {
   
   func selectedItem(for index: Int) {
     interests[index].isSelected.toggle()
+    let item = interests[index]
+    persistenceProvider.removeRecord(with: interests[index].id.string, from: Interest.self)
+    persistenceProvider.saveRecord(saveCode: { (object: Interest) in
+      object.id = item.id.int64
+      object.img = item.img
+      object.title = item.title
+      object.isSelected = item.isSelected
+      object.color = item.color.stringColor
+    }, completion: {_ in })
   }
+  
+  
+  
 }

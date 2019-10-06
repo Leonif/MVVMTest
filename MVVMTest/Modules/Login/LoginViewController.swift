@@ -31,14 +31,12 @@ class LoginViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
     self.setupNavigationBar()
-    self.view.backgroundColor = .nero
     self.setupButton()
     self.setupSubtitle()
     self.setupTitle()
     self.setupIcon()
-    
+    self.decorate()
   }
   
   private func setupNavigationBar() {
@@ -65,10 +63,6 @@ class LoginViewController: UIViewController {
   
   private func setupTitle() {
     self.titleLabel = UILabel(frame: CGRect.zero)
-    self.titleLabel.textAlignment = .center
-    self.titleLabel.text = "Welcome to"
-    self.titleLabel.textColor = .white
-    self.titleLabel.font = UIFont.systemFont(ofSize: 32)
     self.view.addSubview(titleLabel)
     titleLabel.translatesAutoresizingMaskIntoConstraints = false
     NSLayoutConstraint.activate([
@@ -80,10 +74,6 @@ class LoginViewController: UIViewController {
   
   private func setupSubtitle() {
     self.subtitleLabel = UILabel(frame: CGRect.zero)
-    self.subtitleLabel.textAlignment = .center
-    self.subtitleLabel.text = "SOCIAL MEDIA broadcaster"
-    self.subtitleLabel.textColor = .white
-    self.subtitleLabel.font = UIFont.systemFont(ofSize: 20)
     self.view.addSubview(subtitleLabel)
     subtitleLabel.translatesAutoresizingMaskIntoConstraints = false
     NSLayoutConstraint.activate([
@@ -95,10 +85,7 @@ class LoginViewController: UIViewController {
   
   private func setupButton() {
     self.loginButton = UIButton(frame: CGRect.zero)
-    self.loginButton.setTitle("Continue with Facebook", for: .normal)
-    self.loginButton.backgroundColor = .steelBlue
     self.view.addSubview(loginButton)
-  
     loginButton.translatesAutoresizingMaskIntoConstraints = false
     NSLayoutConstraint.activate([
       loginButton.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 32),
@@ -106,10 +93,23 @@ class LoginViewController: UIViewController {
       loginButton.centerYAnchor.constraint(equalTo: self.view.centerYAnchor),
       loginButton.heightAnchor.constraint(equalToConstant: 60),
     ])
-    
-    loginButton.layer.cornerRadius = 30
-    
     self.loginButton.addTarget(self, action: #selector(loginTapped), for: .touchUpInside)
+  }
+  
+  
+  private func decorate() {
+    self.view.backgroundColor = .nero
+    self.loginButton.setTitle("Continue with Facebook", for: .normal)
+    self.loginButton.backgroundColor = .steelBlue
+    loginButton.layer.cornerRadius = 30
+    self.titleLabel.text = "Welcome to"
+    self.titleLabel.textAlignment = .center
+    self.titleLabel.textColor = .white
+    self.titleLabel.font = UIFont.systemFont(ofSize: 32)
+    self.subtitleLabel.text = "SOCIAL MEDIA broadcaster"
+    self.subtitleLabel.textAlignment = .center
+    self.subtitleLabel.textColor = .white
+    self.subtitleLabel.font = UIFont.systemFont(ofSize: 20)
   }
   
   @objc
