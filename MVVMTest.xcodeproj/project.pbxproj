@@ -13,6 +13,7 @@
 		EC76D0CE53DCC3A83F8DA150 /* DataProviderFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC76DEB64D927A8422464120 /* DataProviderFactory.swift */; };
 		EC76D8FC96E4DCE98A84FD70 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC76D2487C9933D8396A8168 /* LoginViewController.swift */; };
 		EC76D9068C774722617B1215 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC76D45B5F63DBB39DDCDB5D /* AppCoordinator.swift */; };
+		EC76DAB501A1C85A699C443C /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC76D766EBED4DF41257DF78 /* Colors.swift */; };
 		EC76DAE4A97CEE51E1FCBFF3 /* PersistenceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC76D5DD09ABAB222037E6B9 /* PersistenceProvider.swift */; };
 		EC76DB76F433DE26D2FF9036 /* CollectionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC76DC7D9E40284CE4ABDDF2 /* CollectionHelper.swift */; };
 		EC76DE570D111154D3AD2CA9 /* LoginAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC76DDE0610EFE3DDB85C434 /* LoginAssembler.swift */; };
@@ -124,6 +125,7 @@
 		EC76D45B5F63DBB39DDCDB5D /* AppCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		EC76D4AA7832614C6D340493 /* InterestsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterestsViewController.swift; sourceTree = "<group>"; };
 		EC76D5DD09ABAB222037E6B9 /* PersistenceProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistenceProvider.swift; sourceTree = "<group>"; };
+		EC76D766EBED4DF41257DF78 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		EC76DAB056D97F4D25A7568A /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		EC76DC7D9E40284CE4ABDDF2 /* CollectionHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionHelper.swift; sourceTree = "<group>"; };
 		EC76DC88915F0C7206518815 /* PitchPersistenceProviderInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PitchPersistenceProviderInterface.swift; sourceTree = "<group>"; };
@@ -294,6 +296,7 @@
 				EC76DFCD923A05C53C17B1B6 /* Flow */,
 				EC76D099C26BEDB09C02CDBD /* Modules */,
 				EC76DEB64D927A8422464120 /* DataProviderFactory.swift */,
+				EC76D766EBED4DF41257DF78 /* Colors.swift */,
 			);
 			path = MVVMTest;
 			sourceTree = "<group>";
@@ -768,6 +771,7 @@
 				EC76DE570D111154D3AD2CA9 /* LoginAssembler.swift in Sources */,
 				EC76DB76F433DE26D2FF9036 /* CollectionHelper.swift in Sources */,
 				EC76D0CE53DCC3A83F8DA150 /* DataProviderFactory.swift in Sources */,
+				EC76DAB501A1C85A699C443C /* Colors.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
