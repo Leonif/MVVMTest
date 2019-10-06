@@ -4,15 +4,16 @@
 //
 
 import Utils
+import FBSDKLoginKit
 
 enum LoginViewModelEvent {
   case error
+  case cancel
 }
 
 protocol LoginViewModelInterface {
   var eventHandler: EventHandler<LoginViewModelEvent>? { get set }
   func loginFacebook()
-  func onFinished()
 }
 
 protocol LoginCoordinatorOutput: class {
@@ -24,16 +25,25 @@ class LoginViewModel: LoginViewModelInterface {
   weak var output: LoginCoordinatorOutput?
   var service: Bool = true
   var eventHandler: EventHandler<LoginViewModelEvent>?
+  var manager: LoginManager!
   
   func loginFacebook() {
-    if service {
+    if AccessToken.current != nil {
       output?.loginFinished()
-    } else {
-      eventHandler?(.error)
+      return
     }
-  }
-  
-  func onFinished() {
-  
+    
+    self.manager.logIn(permissions: ["email"], from: nil) { (result, error) in
+      guard let loginResult = result, error == nil else {
+        self.eventHandler?(.error)
+        return
+      }
+      
+      if loginResult.isCancelled {
+        self.eventHandler?(.cancel)
+      } else {
+        self.output?.loginFinished()
+      }
+    }
   }
 }

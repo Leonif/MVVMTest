@@ -7,8 +7,7 @@
 //
 
 import UIKit
-import LeoUtils
-
+import Utils
 
 class LoginViewController: UIViewController {
   
@@ -24,11 +23,12 @@ class LoginViewController: UIViewController {
       switch states {
       case .error:
         self?.showError()
+      case .cancel:
+        self?.show(info: "User canclled login")
       }
     }
     self.setupButton()
   }
-  
   
   private func setupButton() {
     self.loginButton = UIButton(frame: CGRect(origin: CGPoint.zero, size: CGSize(width: 100, height: 50)))
@@ -39,15 +39,17 @@ class LoginViewController: UIViewController {
     self.loginButton.addTarget(self, action: #selector(loginTapped), for: .touchUpInside)
   }
   
-  
   @objc
   func loginTapped() {
     viewModel.loginFacebook()
   }
   
-  func showError() {
+  private func showError() {
     self.alert(message: "Something went wrong")
   }
   
+  private func show(info: String) {
+    self.alert(message: info)
+  }
 }
 
