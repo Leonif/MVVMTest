@@ -10,13 +10,11 @@ import DataLayer
 
 enum InterestsAssembler {
   static func makeInterestModule() -> Module<InterestsViewModel> {
-    let view = InterestsViewController()
     let viewModel = InterestsViewModel()
+    let viewController = InterestsViewController(viewModel: viewModel)
+    
     viewModel.persistenceProvider = DataProviderFactory().assemble()
-    view.viewModel = viewModel
-    let helper = CollectionHelper()
-    helper.viewModel = viewModel
-    view.collectionHelper = helper
-    return (view, viewModel)
+    
+    return (viewController, viewModel)
   }
 }
