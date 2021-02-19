@@ -222,6 +222,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		33036C4825DFCED9008562A3 /* SupportedFiles */ = {
+			isa = PBXGroup;
+			children = (
+				F646E41323488FA000C5F77A /* AppDelegate.swift */,
+				F646E41523488FA000C5F77A /* SceneDelegate.swift */,
+				F646E41C23488FA100C5F77A /* Assets.xcassets */,
+				F646E41E23488FA100C5F77A /* LaunchScreen.storyboard */,
+				F646E42123488FA100C5F77A /* Info.plist */,
+			);
+			path = SupportedFiles;
+			sourceTree = "<group>";
+		};
 		B42B080C9D3DB3148E11EBF6 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -432,11 +444,7 @@
 		F646E41223488FA000C5F77A /* MVVMTest */ = {
 			isa = PBXGroup;
 			children = (
-				F646E41323488FA000C5F77A /* AppDelegate.swift */,
-				F646E41523488FA000C5F77A /* SceneDelegate.swift */,
-				F646E41C23488FA100C5F77A /* Assets.xcassets */,
-				F646E41E23488FA100C5F77A /* LaunchScreen.storyboard */,
-				F646E42123488FA100C5F77A /* Info.plist */,
+				33036C4825DFCED9008562A3 /* SupportedFiles */,
 				F646E4BD234925F800C5F77A /* Components */,
 				EC76DFCD923A05C53C17B1B6 /* Flow */,
 				EC76D099C26BEDB09C02CDBD /* Modules */,
@@ -1031,7 +1039,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 379294YDPQ;
-				INFOPLIST_FILE = MVVMTest/Info.plist;
+				INFOPLIST_FILE = MVVMTest/SupportedFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1078,7 +1086,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 379294YDPQ;
-				INFOPLIST_FILE = MVVMTest/Info.plist;
+				INFOPLIST_FILE = MVVMTest/SupportedFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
