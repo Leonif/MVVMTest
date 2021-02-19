@@ -15,5 +15,4 @@ public class DataProviderFactory {
   func assemble() -> PersistenceProviderInterface {
     return (UIApplication.shared.delegate as? AppDelegate)!.persistenceProvider
   }
-  
 }

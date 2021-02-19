@@ -7,7 +7,7 @@ import UIKit
 class InterestsViewController: UIViewController {
     
     let rootView: InterestsView
-    let viewModel: (InterestsViewModelInterface & InterestsDataSource)
+    var viewModel: (InterestsViewModelInterface & InterestsDataSource)
     
     convenience init(viewModel: (InterestsViewModelInterface & InterestsDataSource)) {
         self.init(viewModel: viewModel, nibName: .none, bundle: .none)
@@ -27,14 +27,24 @@ class InterestsViewController: UIViewController {
     }
     
     override func loadView() {
-        
         view = rootView
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupBinding()
         viewModel.fetch()
+    }
+    
+    private func setupBinding() {
+        viewModel.eventHandler = { [unowned self] event in
+            switch event {
+            case .changed: rootView.collectionHelper.reload()
+            case .error: showError()
+            default: break
+            }
+        }
     }
     
     func showError() {

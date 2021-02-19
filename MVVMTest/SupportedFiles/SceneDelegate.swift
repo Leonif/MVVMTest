@@ -17,7 +17,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
-        configurateScene(scene)
+        configure(scene)
         applicationCoordinator.start()
     }
     
@@ -35,12 +35,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     private func makeCoordinator() -> CoordinatorInterface {
-        guard let window = window else { fatalError() }
+        guard let window = window else { fatalError("window is not created") }
         let router = Router(window: window)
         return AppCoordinator(router: router)
     }
     
-    private func configurateScene(_ scene: UIScene) {
+    private func configure(_ scene: UIScene) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
