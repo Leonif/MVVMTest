@@ -6,8 +6,7 @@ import UIKit
 
 class InterestsViewController: UIViewController {
     
-    var rootView: InterestsView?
-    
+    let rootView: InterestsView
     let viewModel: (InterestsViewModelInterface & InterestsDataSource)
     
     convenience init(viewModel: (InterestsViewModelInterface & InterestsDataSource)) {
@@ -15,7 +14,10 @@ class InterestsViewController: UIViewController {
     }
     
     init(viewModel: (InterestsViewModelInterface & InterestsDataSource), nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        
         self.viewModel = viewModel
+        
+        rootView = InterestsView(viewModel: viewModel)
         
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
@@ -25,7 +27,7 @@ class InterestsViewController: UIViewController {
     }
     
     override func loadView() {
-        rootView = InterestsView(viewModel: viewModel)
+        
         view = rootView
     }
     

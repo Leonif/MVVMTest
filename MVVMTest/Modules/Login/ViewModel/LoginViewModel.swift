@@ -23,9 +23,12 @@ protocol LoginCoordinatorOutput: class {
 class LoginViewModel: LoginViewModelInterface {
     
     weak var output: LoginCoordinatorOutput?
-    var service: Bool = true
     var eventHandler: EventHandler<LoginViewModelEvent>?
-    var manager: LoginManager!
+    let manager: LoginManager
+    
+    init(loginManager: LoginManager) {
+        self.manager = loginManager
+    }
     
     func loginFacebook() {
         if let token = AccessToken.current, !token.isExpired {

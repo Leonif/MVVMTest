@@ -10,18 +10,16 @@ import DataLayer
 import FBSDKLoginKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
-
-  var window: UIWindow?
-  
-  var rootController: UINavigationController?
-  
-  private lazy var applicationCoordinator: CoordinatorInterface = makeCoordinator()
-  
-  func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
     
-    self.rootController = makeRootViewController(with: scene)
-    self.applicationCoordinator.start()
-  }
+    var window: UIWindow?
+
+    private lazy var applicationCoordinator: CoordinatorInterface = makeCoordinator()
+    
+    func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+        
+        configurateScene(scene)
+        applicationCoordinator.start()
+    }
     
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
         guard let url = URLContexts.first?.url else {
@@ -35,19 +33,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             annotation: [UIApplication.OpenURLOptionsKey.annotation]
         )
     }
-
-  
-  private func makeRootViewController(with scene: UIScene) -> UINavigationController? {
-    guard let windowScene = (scene as? UIWindowScene) else { return .none}
-    window = UIWindow(frame: windowScene.coordinateSpace.bounds)
-    window?.windowScene = windowScene
-    window?.rootViewController = UINavigationController(rootViewController: LoginViewController())
-    window?.makeKeyAndVisible()
-    return self.window?.rootViewController as? UINavigationController
-  }
-  
-  private func makeCoordinator() -> CoordinatorInterface {
-    return AppCoordinator(router: Router(rootViewController: rootController!))
-  }
-
+    
+    private func makeCoordinator() -> CoordinatorInterface {
+        guard let window = window else { fatalError() }
+        let router = Router(window: window)
+        return AppCoordinator(router: router)
+    }
+    
+    private func configurateScene(_ scene: UIScene) {
+        guard let windowScene = (scene as? UIWindowScene) else { return }
+        window = UIWindow(frame: windowScene.coordinateSpace.bounds)
+        window?.windowScene = windowScene
+    }
+    
 }

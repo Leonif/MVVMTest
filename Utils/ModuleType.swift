@@ -8,4 +8,4 @@
 import UIKit
 
 //public typealias Module<Presenter> = (view: UIViewController, presenter: Presenter)
-public typealias Module<ViewModel> = (view: UIViewController, viewModel: ViewModel)
+public typealias Module<ViewModel> = (viewController: UIViewController, viewModel: ViewModel)

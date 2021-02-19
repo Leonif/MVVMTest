@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		330AA6BF25DFD853004F7F5B /* InterestsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330AA6BE25DFD853004F7F5B /* InterestsView.swift */; };
+		330AA6D125DFE25B004F7F5B /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330AA6D025DFE25B004F7F5B /* LoginView.swift */; };
+		330AA6D725DFEBA2004F7F5B /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330AA6D625DFEBA2004F7F5B /* Router.swift */; };
 		871484007B7C0CF2D734FF3B /* Pods_DataLayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBE9E9B82118EE0FDAABF893 /* Pods_DataLayer.framework */; };
 		B46DBD18E5B44A230749AF8F /* Pods_MVVMTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25B95393F3750DD56299FA04 /* Pods_MVVMTest.framework */; };
 		C6C4AF42C7DFCED9A18F9ECF /* Pods_Utils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCFBD7EECC3DDE5EE4DD815B /* Pods_Utils.framework */; };
@@ -115,6 +117,8 @@
 /* Begin PBXFileReference section */
 		25B95393F3750DD56299FA04 /* Pods_MVVMTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MVVMTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		330AA6BE25DFD853004F7F5B /* InterestsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestsView.swift; sourceTree = "<group>"; };
+		330AA6D025DFE25B004F7F5B /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		330AA6D625DFEBA2004F7F5B /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		4FFEAE43C6E28FEB07116E43 /* Pods-MVVMTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVMTest.release.xcconfig"; path = "Target Support Files/Pods-MVVMTest/Pods-MVVMTest.release.xcconfig"; sourceTree = "<group>"; };
 		9B93F643E314D48631137B5D /* Pods-DataLayer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DataLayer.debug.xcconfig"; path = "Target Support Files/Pods-DataLayer/Pods-DataLayer.debug.xcconfig"; sourceTree = "<group>"; };
 		9E524425CF60655C4BA7F857 /* Pods-DataLayer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DataLayer.release.xcconfig"; path = "Target Support Files/Pods-DataLayer/Pods-DataLayer.release.xcconfig"; sourceTree = "<group>"; };
@@ -236,6 +240,59 @@
 			path = SupportedFiles;
 			sourceTree = "<group>";
 		};
+		330AA6C225DFE18E004F7F5B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F646E4DB23493E8200C5F77A /* ViewItems */,
+				F646E4BC234925EC00C5F77A /* InterestCell */,
+				EC76DC7D9E40284CE4ABDDF2 /* CollectionHelper.swift */,
+				EC76D4AA7832614C6D340493 /* InterestsViewController.swift */,
+				330AA6BE25DFD853004F7F5B /* InterestsView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		330AA6C325DFE19D004F7F5B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F646E4B32348B61B00C5F77A /* InterestsViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		330AA6C625DFE1B7004F7F5B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				EC76DAB056D97F4D25A7568A /* LoginViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		330AA6C725DFE1BF004F7F5B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EC76D2487C9933D8396A8168 /* LoginViewController.swift */,
+				330AA6D025DFE25B004F7F5B /* LoginView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		330AA6CA25DFE21D004F7F5B /* Assembler */ = {
+			isa = PBXGroup;
+			children = (
+				F646E4B62348B66300C5F77A /* InterestsAssembler.swift */,
+			);
+			path = Assembler;
+			sourceTree = "<group>";
+		};
+		330AA6CD25DFE225004F7F5B /* Assembler */ = {
+			isa = PBXGroup;
+			children = (
+				EC76DDE0610EFE3DDB85C434 /* LoginAssembler.swift */,
+			);
+			path = Assembler;
+			sourceTree = "<group>";
+		};
 		B42B080C9D3DB3148E11EBF6 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -261,9 +318,9 @@
 		EC76D29252936B4F8E6B8252 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				EC76DAB056D97F4D25A7568A /* LoginViewModel.swift */,
-				EC76D2487C9933D8396A8168 /* LoginViewController.swift */,
-				EC76DDE0610EFE3DDB85C434 /* LoginAssembler.swift */,
+				330AA6C625DFE1B7004F7F5B /* ViewModel */,
+				330AA6C725DFE1BF004F7F5B /* View */,
+				330AA6CD25DFE225004F7F5B /* Assembler */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -272,6 +329,7 @@
 			isa = PBXGroup;
 			children = (
 				EC76D45B5F63DBB39DDCDB5D /* AppCoordinator.swift */,
+				330AA6D625DFEBA2004F7F5B /* Router.swift */,
 			);
 			path = Flow;
 			sourceTree = "<group>";
@@ -447,7 +505,6 @@
 			isa = PBXGroup;
 			children = (
 				33036C4825DFCED9008562A3 /* SupportedFiles */,
-				F646E4BD234925F800C5F77A /* Components */,
 				EC76DFCD923A05C53C17B1B6 /* Flow */,
 				EC76D099C26BEDB09C02CDBD /* Modules */,
 				EC76DEB64D927A8422464120 /* DataProviderFactory.swift */,
@@ -469,11 +526,9 @@
 		F646E4B52348B62900C5F77A /* Interests */ = {
 			isa = PBXGroup;
 			children = (
-				EC76D4AA7832614C6D340493 /* InterestsViewController.swift */,
-				330AA6BE25DFD853004F7F5B /* InterestsView.swift */,
-				F646E4B62348B66300C5F77A /* InterestsAssembler.swift */,
-				F646E4B32348B61B00C5F77A /* InterestsViewModel.swift */,
-				EC76DC7D9E40284CE4ABDDF2 /* CollectionHelper.swift */,
+				330AA6C325DFE19D004F7F5B /* ViewModel */,
+				330AA6C225DFE18E004F7F5B /* View */,
+				330AA6CA25DFE21D004F7F5B /* Assembler */,
 			);
 			path = Interests;
 			sourceTree = "<group>";
@@ -485,15 +540,6 @@
 				F646E4B9234925E500C5F77A /* InterestCell.xib */,
 			);
 			path = InterestCell;
-			sourceTree = "<group>";
-		};
-		F646E4BD234925F800C5F77A /* Components */ = {
-			isa = PBXGroup;
-			children = (
-				F646E4BC234925EC00C5F77A /* InterestCell */,
-				F646E4DB23493E8200C5F77A /* ViewItems */,
-			);
-			path = Components;
 			sourceTree = "<group>";
 		};
 		F646E4C42349346500C5F77A /* DataLayer */ = {
@@ -816,10 +862,12 @@
 				F646E4B72348B66300C5F77A /* InterestsAssembler.swift in Sources */,
 				EC76DEF2AF25EC0795E3B2FB /* InterestsViewController.swift in Sources */,
 				EC76DE826FEB6C6BCBB5C89B /* LoginViewModel.swift in Sources */,
+				330AA6D725DFEBA2004F7F5B /* Router.swift in Sources */,
 				EC76D8FC96E4DCE98A84FD70 /* LoginViewController.swift in Sources */,
 				EC76DE570D111154D3AD2CA9 /* LoginAssembler.swift in Sources */,
 				EC76DB76F433DE26D2FF9036 /* CollectionHelper.swift in Sources */,
 				EC76D0CE53DCC3A83F8DA150 /* DataProviderFactory.swift in Sources */,
+				330AA6D125DFE25B004F7F5B /* LoginView.swift in Sources */,
 				EC76DAB501A1C85A699C443C /* Colors.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

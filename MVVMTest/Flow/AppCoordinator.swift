@@ -4,66 +4,40 @@
 
 import UIKit
 
-protocol RouterInterface {
-  func setRootModule(viewController: UIViewController)
-  func push(viewController: UIViewController)
-  func back()
-}
-
 protocol CoordinatorInterface: class {
-  func start()
-}
-
-class Router: RouterInterface {
-  
-  var rootViewController: UINavigationController!
-  
-  init(rootViewController: UINavigationController) {
-    self.rootViewController = rootViewController
-  }
-  func setRootModule(viewController: UIViewController) {
-    self.rootViewController?.setViewControllers([viewController], animated: false)
-  }
-  
-  func push(viewController: UIViewController) {
-    self.rootViewController.pushViewController(viewController, animated: true)
-  }
-  
-  func back() {
-    self.rootViewController.popViewController(animated: true)
-  }
+    func start()
 }
 
 class AppCoordinator: CoordinatorInterface {
-  var router: RouterInterface?
-  
-  init(router: RouterInterface) {
-    self.router = router
-  }
-  
-  func start() {
-    showLoginScreen()
-  }
-  
-  private func showLoginScreen() {
-    let module = LoginAssembler.makeLoginModule()
-    module.viewModel.output = self
-    router?.setRootModule(viewController: module.view)
-  }
-  
-  private func showInterestsScreen() {
-    let module = InterestsAssembler.makeInterestModule()
-    module.viewModel.output = self
-    router?.push(viewController: module.view)
-  }
+    var router: RouterInterface?
+    
+    init(router: RouterInterface) {
+        self.router = router
+    }
+    
+    func start() {
+        showLoginScreen()
+    }
+    
+    private func showLoginScreen() {
+        let module = LoginAssembler.makeLoginModule()
+        module.viewModel.output = self
+        router?.setRootModule(viewController: module.viewController)
+    }
+    
+    private func showInterestsScreen() {
+        let module = InterestsAssembler.makeInterestModule()
+        module.viewModel.output = self
+        router?.push(viewController: module.viewController)
+    }
 }
 
 extension AppCoordinator: LoginCoordinatorOutput, InterestsCoordinatorOutput {
-  func loginFinished() {
-    showInterestsScreen()
-  }
-  
-  func interestFinished() {
-    router?.back()
-  }
+    func loginFinished() {
+        showInterestsScreen()
+    }
+    
+    func interestFinished() {
+        router?.back()
+    }
 }
