@@ -5,7 +5,7 @@
 
 import Foundation
 
-public protocol PitchPersistenceProviderInterface {
+public protocol PersistenceProviderInterface {
   func fetchAllRecords<Entity: Persistanble>() -> [Entity]
   func fetchRecord<Entity: Persistanble>(with id: String) -> Entity?
   func saveRecord<Entity: Persistanble>(saveCode: @escaping (Entity) -> Void, completion: @escaping (Bool) -> Void)

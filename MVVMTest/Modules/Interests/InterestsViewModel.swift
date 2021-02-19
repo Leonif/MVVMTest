@@ -40,7 +40,7 @@ class InterestsViewModel: InterestsViewModelInterface, InterestsDataSource {
     InterestItem(id: 4,img: "", title: "Auto & Vehicle", color: .brown, isSelected: false),
   ]
   
-  var persistenceProvider: PitchPersistenceProviderInterface!
+  var persistenceProvider: PersistenceProviderInterface!
   var eventHandler: EventHandler<InterestsViewModelEvent>? = nil
   private var coredataService: Bool = true
   

@@ -15,7 +15,7 @@ extension NSManagedObject {
 }
 
 
-public class PersistenceProvider: PitchPersistenceProviderInterface {
+public class PersistenceProvider: PersistenceProviderInterface {
   
   private let stack: CoreDataStack
   

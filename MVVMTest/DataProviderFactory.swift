@@ -8,11 +8,11 @@ import UIKit
 
 public class DataProviderFactory {
 
-  public class func createPersistenceManager() -> PitchPersistenceProviderInterface {
+  public class func createPersistenceManager() -> PersistenceProviderInterface {
     return PersistenceProvider()
   }
   
-  func assemble() -> PitchPersistenceProviderInterface {
+  func assemble() -> PersistenceProviderInterface {
     return (UIApplication.shared.delegate as? AppDelegate)!.persistenceProvider
   }
   
